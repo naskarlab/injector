@@ -1,6 +1,6 @@
 package com.naskar.injector;
 
-public interface Filter {
+public interface ClassFilter {
 	
 	boolean filter(Class<?> clazz);
 	

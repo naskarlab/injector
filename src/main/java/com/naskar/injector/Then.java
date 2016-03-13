@@ -1,18 +1,23 @@
 package com.naskar.injector;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class Then {
 
 	public static Factory usingSingleton() {
 		return new Factory() {
 			
-			private Object instance = null;
+			private Map<Class<?>, Object> scope = new HashMap<Class<?>, Object>();
 			
 			@Override
-			public Object create(Injector injector, Class<?> clazz) {
+			public Object create(ApplicationContext ctx, Class<?> clazz) {
 				
+				Object instance = scope.get(clazz);
 				if(instance == null) {
 					try {		
 						instance = clazz.newInstance();
+						scope.put(clazz, instance);
 							
 					} catch(Exception e) {
 						throw new RuntimeException(e);
@@ -25,10 +30,10 @@ public abstract class Then {
 	}
 	
 	public static Factory usingPrototype() {
-		return (injector, clazz) -> {
+		return (ctx, clazz) -> {
 			try {
 				
-				return clazz.newInstance();
+				return (Object)clazz.newInstance();
 						
 			} catch(Exception e) {
 				throw new RuntimeException(e);

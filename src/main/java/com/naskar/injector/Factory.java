@@ -2,6 +2,6 @@ package com.naskar.injector;
 
 public interface Factory {
 	
-	Object create(Injector injector, Class<?> clazz);
+	Object create(ApplicationContext ctx, Class<?> clazz);
 	
 }

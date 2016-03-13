@@ -2,6 +2,6 @@ package com.naskar.injector;
 
 public interface Registrator {
 	
-	void register(Injector injector, Class<?> clazz, Factory factory);
+	void register(ApplicationContext ctx, Class<?> clazz, Factory factory);
 	
 }

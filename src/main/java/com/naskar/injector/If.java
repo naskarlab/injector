@@ -1,10 +1,24 @@
 package com.naskar.injector;
 
+import java.lang.annotation.Annotation;
+
 public class If {
 	
-	public static Filter implementsInterface() {
+	public static ClassFilter implementsInterface() {
 		return (clazz) -> {
 			return !clazz.isInterface() && clazz.getInterfaces().length > 0;
+		};
+	}
+	
+	public static FieldFilter allFields() {
+		return (field) -> {
+			return true;
+		};
+	}
+	
+	public static FieldFilter hasAnnotation(Class<? extends Annotation> clazz) {
+		return (field) -> {
+			return field.getAnnotation(clazz) != null;
 		};
 	}
 
