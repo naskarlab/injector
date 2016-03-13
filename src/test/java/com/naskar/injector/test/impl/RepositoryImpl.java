@@ -4,4 +4,6 @@ import com.naskar.injector.test.Repository;
 
 public class RepositoryImpl implements Repository {
 
+	private String tt;
+	
 }

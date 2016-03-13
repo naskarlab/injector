@@ -20,7 +20,7 @@ public class ApplicationContext {
 		}
 	};
 	
-	private Map<Class<?>, Factory> factories;
+	private Map<String, Factory> factories;
 	
 	private List<ClassFilter> includes;
 	private List<ClassFilter> excludes;
@@ -33,7 +33,7 @@ public class ApplicationContext {
 		this.registers = new ArrayList<Entry>();
 		this.injectors = new ArrayList<Injector>();
 		
-		this.factories = new HashMap<Class<?>, Factory>();
+		this.factories = new HashMap<String, Factory>();
 	}
 
 	public ApplicationContext include(ClassFilter filter) {
@@ -80,20 +80,20 @@ public class ApplicationContext {
 	@SuppressWarnings("unchecked")
 	public <T> T resolve(Class<T> clazz) {
 		T o = null;
-		Factory f = this.factories.get(clazz);
+		Factory f = this.factories.get(clazz.getName());
 		if(f != null) {
 			o = (T)f.create(this, clazz);
 			
 			for(Injector i : this.injectors) {
 				i.inject(this, o);
-			}	
+			}
 		}
 		
 		return o;
 	}
 
 	public void register(Class<?> clazz, Factory factory) {
-		this.factories.put(clazz, factory);
+		this.factories.put(clazz.getName(), factory);
 	}
 
 	public ApplicationContext inject(Injector injector) {
