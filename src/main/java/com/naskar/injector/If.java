@@ -2,11 +2,17 @@ package com.naskar.injector;
 
 import java.lang.annotation.Annotation;
 
-public class If {
+public abstract class If {
 	
 	public static ClassFilter implementsInterface() {
 		return (clazz) -> {
 			return !clazz.isInterface() && clazz.getInterfaces().length > 0;
+		};
+	}
+	
+	public static ClassFilter implementsInterface(Class<?> interfaceClass) {
+		return (clazz) -> {
+			return interfaceClass.isAssignableFrom(clazz);
 		};
 	}
 	

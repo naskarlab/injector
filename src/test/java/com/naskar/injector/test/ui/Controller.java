@@ -1,7 +1,8 @@
-package com.naskar.injector.test;
+package com.naskar.injector.test.ui;
 
 import com.naskar.injector.Inject;
 import com.naskar.injector.Reference;
+import com.naskar.injector.test.service.Service;
 
 @Reference
 public class Controller {

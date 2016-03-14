@@ -1,7 +1,7 @@
-package com.naskar.injector.test.impl;
+package com.naskar.injector.test.repository.impl;
 
 import com.naskar.injector.Reference;
-import com.naskar.injector.test.Repository;
+import com.naskar.injector.test.repository.Repository;
 
 @Reference
 public class RepositoryImpl implements Repository {

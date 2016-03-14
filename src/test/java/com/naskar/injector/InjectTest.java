@@ -6,11 +6,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.naskar.injector.test.Controller;
-import com.naskar.injector.test.Repository;
-import com.naskar.injector.test.Service;
-import com.naskar.injector.test.impl.RepositoryImpl;
-import com.naskar.injector.test.impl.ServiceImpl;
+import com.naskar.injector.test.repository.Repository;
+import com.naskar.injector.test.repository.impl.RepositoryImpl;
+import com.naskar.injector.test.service.Service;
+import com.naskar.injector.test.service.impl.ServiceImpl;
+import com.naskar.injector.test.ui.Controller;
 
 public class InjectTest {
 	
