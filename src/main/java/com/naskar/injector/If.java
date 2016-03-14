@@ -10,6 +10,12 @@ public class If {
 		};
 	}
 	
+	public static ClassFilter withAnnotation(Class<? extends Annotation> clazz) {
+		return (c) -> {
+			return c.getAnnotation(clazz) != null;
+		};
+	}
+	
 	public static FieldFilter allFields() {
 		return (field) -> {
 			return true;
