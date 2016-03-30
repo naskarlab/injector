@@ -4,12 +4,12 @@ Dependency Injection without dependency with Injector.
 
 ## Features
 
-– Configuration over code: independence business code of the infrastructure code;
-– Intrusive-less: zero or less changes for your code;
-– Glue code: it’s only a small and simple classes set;
-– Fluent Builder: code complete is your friend!
+* Configuration over code: independence business code of the infrastructure code;
+* Intrusive-less: zero or less changes for your code;
+* Glue code: it’s only a small and simple classes set;
+* Fluent Builder: code complete is your friend!
 
-Documentation: [a link](http://lab.naskar.com.br/2016/03/injector-dependency-injection-without-dependency-with-injector/)
+Documentation: [naskar lab](http://lab.naskar.com.br/2016/03/injector-dependency-injection-without-dependency-with-injector/)
 
 
 ## Examples
