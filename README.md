@@ -11,6 +11,28 @@ Dependency Injection without dependency with Injector.
 
 Documentation: [naskar lab](http://lab.naskar.com.br/2016/03/injector-dependency-injection-without-dependency-with-injector/)
 
+## Using
+
+```
+<dependencies>
+	<dependency>
+		<groupId>com.naskar</groupId>
+		<artifactId>injector</artifactId>
+		<version>1.0.0</version>
+	</dependency>
+</dependencies>
+<repositories>
+	<repository>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+		<id>central</id>
+		<name>libs-release</name>
+		<url>http://repo.naskar.com.br/dist/libs-release</url>
+	</repository>
+</repositories>
+```	
+
 
 ## Examples
 

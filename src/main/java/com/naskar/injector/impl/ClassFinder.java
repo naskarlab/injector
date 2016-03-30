@@ -36,7 +36,7 @@ public class ClassFinder {
 							
 						} catch (ClassNotFoundException e) {
 							// TODO: logger
-							System.out.println("Classe n„o encontrada: " + className);
+							System.out.println("Classe n√£o encontrada: " + className);
 							
 						}
 						
