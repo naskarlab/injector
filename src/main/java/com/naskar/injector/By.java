@@ -1,6 +1,9 @@
 package com.naskar.injector;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 public abstract class By {
 	
@@ -8,11 +11,26 @@ public abstract class By {
 		return (ctx, instance) -> {
 			try {
 				
-				for(Field field : instance.getClass().getDeclaredFields()) {
+				Object realInstance = instance;
+				
+				if(Proxy.isProxyClass(instance.getClass())) {
+					InvocationHandler ih = Proxy.getInvocationHandler(instance);
+					if(ih != null) {
+						Method m = ih.getClass().getMethod("getTarget", new Class[] {});
+						if(m != null) {
+							realInstance = m.invoke(ih);
+						}
+					}
+				}
+				
+				for(Field field : realInstance.getClass().getDeclaredFields()) {
 					if(filter.filter(field)) {
-						field.setAccessible(true);
-						field.set(instance, ctx.resolve(field.getType()));
-						field.setAccessible(false);
+						Object i = ctx.resolve(field.getType());
+						if(i != null) {
+							field.setAccessible(true);
+							field.set(realInstance, i);
+							field.setAccessible(false);
+						}
 					}
 				}
 				

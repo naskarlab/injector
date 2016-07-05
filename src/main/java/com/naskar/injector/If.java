@@ -33,5 +33,17 @@ public abstract class If {
 			return field.getAnnotation(clazz) != null;
 		};
 	}
+	
+	public static ClassFilter all(ClassFilter... classFilters) {
+		return (clazz) -> {
+			for(ClassFilter f : classFilters) {
+				if(!f.filter(clazz)) {
+					return false;
+				}
+			}
+			
+			return true;
+		};
+	}
 
 }
