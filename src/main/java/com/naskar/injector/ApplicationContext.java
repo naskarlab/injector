@@ -8,7 +8,7 @@ import java.util.Map;
 import com.naskar.injector.impl.ClassFinder;
 import com.naskar.injector.impl.ClassLoaderNameFilter;
 
-public class ApplicationContext {
+public class ApplicationContext implements Resolver {
 	
 	private class Entry {
 		ClassNameFilter filter;
@@ -93,6 +93,7 @@ public class ApplicationContext {
 		return this;
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked")
 	public <T> T resolve(Class<T> clazz) {
 		T o = null;
