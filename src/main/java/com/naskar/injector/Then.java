@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Then {
+	
+	private static Map<Class<?>, Object> scope = new HashMap<Class<?>, Object>();
 
 	public static Factory usingSingleton() {
 		return new Factory() {
-			
-			private Map<Class<?>, Object> scope = new HashMap<Class<?>, Object>();
 			
 			@Override
 			public Object create(ApplicationContext ctx, Class<?> clazz) {
